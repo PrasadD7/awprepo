@@ -1,0 +1,52 @@
+<html>
+
+<head>
+    <style>
+        input {
+            height: 20px;
+        }
+
+        table,
+        tr,
+        td {
+            border: 1px solid black;
+        }
+    </style>
+
+    <script>
+        
+        var Students = [];
+
+        function addEntry() {
+            var contents="";
+            var Student = {
+                prn: document.getElementById("prn").value,
+                name: document.getElementById("name").value,
+                percent: document.getElementById("percent").value
+            }
+            Students.push(Student);
+            Students.forEach(Student => {   
+                contents = contents+"<tr><td>"+Student.prn+"</td><td>"+Student.name+"</td><td>"+Student.percent+"</td></tr>";
+            });
+            document.getElementById("display").innerHTML = contents;
+
+        }
+
+    </script>
+
+</head>
+
+<body>
+    <input id="prn" type="number" placeholder="Enter PRN" />
+    <input id="name" type="text" placeholder="Enter Name" />
+    <input id="percent" type="text" placeholder="Enter Percentage" />
+    <input type="submit" placeholder="Submit" onclick="addEntry()" />
+
+    <div>
+        <table id="display">
+        </table>
+
+    </div>
+</body>
+
+</html>
